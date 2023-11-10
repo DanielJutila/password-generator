@@ -42,6 +42,7 @@ function generatePassword() {
 
 function generationFunction() {
   passQuestions();
+  atLeastOne();
   makePassWord();
   return;
 }
