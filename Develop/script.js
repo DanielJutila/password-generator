@@ -21,67 +21,42 @@ var specialCharacters = '!@#$%^&*()_+-<>/[]{}|~';
 
 
 var passData = {
-  length: 14,
+  length: 0,
   lowercase: true,
   uppercase: true,
   numeric: true,
   specialChar: true
 }
 
-
 function generatePassword() {
   generationFunction();
   return pass;
 }
 
-
-
-
-
-
-
 function generationFunction() {
   passQuestions();
-  atLeastOne();
-  makePassWord();
   return;
 }
 
 var pass = '';
-function makePassWord(){
-  for(var i = 0; i <= passData.length; i++){
-
-
-    //ONLY SEARCHES THE ARRAY FOR HOW LONG THE PASSWORD IS
-    //Pass length of 8 only shoots out top 8 numbers of array.
-
+function makePassWord() {
+  for (var i = 0; i <= passData.length; i++) {
     pass += passAray[Math.floor(Math.random() * passAray.length)]
-  } 
-
-  console.log(pass);
-
-  console.log(passAray);
-  
+  }
   return;
 }
 
 
-
-
-
-
-//Might optimize this later
-//But it works to ask the proper questions and set the object correctly.
-
-
 function passQuestions() {
   passAray = [];
-  pass =''
+  pass = ''
+  passData.length = 0;
 
   //Check Length of password
-  var length = prompt("How long would you like your password to be", 14)
+  var length = prompt("How long would you like your password to be")
   if (length < 8 || length > 128) {
     alert("Your password must be between 8 - 128 characters")
+    generationFunction();
   } else {
     passData.length = length;
   }
@@ -92,7 +67,7 @@ function passQuestions() {
     passData.lowercase = true;
     var nc = [] = nonCaps.split("");
     passAray = passAray.concat(nc);
-    
+
   } else {
     passData.lowercase = false;
   }
@@ -104,7 +79,7 @@ function passQuestions() {
     passData.uppercase = true;
     var c = [] = caps.split("");
     passAray = passAray.concat(c);
-    
+
   } else {
     passData.uppercase = false;
   }
@@ -130,19 +105,17 @@ function passQuestions() {
     passData.specialChar = false;
   }
 
+  if (!passData.lowercase &&
+    !passData.uppercase &&
+    !passData.numeric &&
+    !passData.specialChar
+  ) {
+    alert("You need to select one option");
+    generationFunction();
+  } else {
+    makePassWord();
+  }
+
   return;
 }
 
-function atLeastOne(){
-  if(!passData.lowercase && 
-    !passData.uppercase && 
-    !passData.numeric && 
-    !passData.specialChar
-    ){
-      alert("You need to select one option");
-      generationFunction();
-    } else {
-      makePassWord();
-    }
-    return;
-}
