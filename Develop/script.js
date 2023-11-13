@@ -29,19 +29,17 @@ var passData = {
 }
 
 function generatePassword() {
-  generationFunction();
+  passQuestions();
   return pass;
 }
 
-function generationFunction() {
-  passQuestions();
-  return;
-}
+//If you select wrong number of characters, It loops through all options twice??
+
 
 var pass = '';
 function makePassWord() {
-  for (var i = 0; i <= passData.length; i++) {
-    pass += passAray[Math.floor(Math.random() * passAray.length)]
+  for (var i = 0; i < passData.length; i++) {
+    pass += passAray[Math.floor(Math.random() * passAray.length)];
   }
   return;
 }
@@ -51,11 +49,10 @@ function passQuestions() {
   passAray = [];
   pass = ''
   passData.length = 0;
-
   //Check Length of password
-  var length = prompt("How long would you like your password to be")
+  var length = prompt("How long would you like your password to be");
   if (length < 8 || length > 128) {
-    alert("Your password must be between 8 - 128 characters")
+    alert("Your password must be between 8 - 128 characters");
     generationFunction();
   } else {
     passData.length = length;
@@ -74,7 +71,7 @@ function passQuestions() {
 
 
   //check upperCase
-  var upperCase = confirm("Do you want your password to contain uppercase")
+  var upperCase = confirm("Do you want your password to contain uppercase");
   if (upperCase) {
     passData.uppercase = true;
     var c = [] = caps.split("");
@@ -86,7 +83,7 @@ function passQuestions() {
 
 
   //Check numeric
-  var numbers = confirm("Do you want your password to contain numbers")
+  var numbers = confirm("Do you want your password to contain numbers");
   if (numbers) {
     passData.numeric = true;
     var n = [] = numbys.split("");
@@ -96,7 +93,7 @@ function passQuestions() {
   }
 
   //Check SpecialChar
-  var specChar = confirm("Do you want your password to contain special characters")
+  var specChar = confirm("Do you want your password to contain special characters");
   if (specChar) {
     passData.specialChar = true;
     var sc = [] = specialCharacters.split("");
