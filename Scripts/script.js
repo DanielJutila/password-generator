@@ -30,50 +30,43 @@ var passData = {
 
 function generatePassword() {
   resetPassData();
-  passLength();
-  passCharacterTypes();
-
-  //Checks to see if at least 1 is true
-  //Tried to put into a function but that didnt work.
-  if (!passData.lowerCase &&
-    !passData.upperCase &&
-    !passData.numeric &&
-    !passData.specialCharacters
-  ) {
-    alert("You need to select one option");
-    generatePassword();
+  //stop rest of function running if pass is not 8-128
+  var length = prompt("How long would you like your password to be");
+  if (length < 8 || length > 128) {
+    alert("Must be between 8-128 characters!")
+    return generatePassword();
   } else {
-    makePassWord();
+    passData.length = length;
+    passCharacterTypes();
+    //Checks to see if at least 1 is true
+    if (!passData.lowerCase &&
+      !passData.upperCase &&
+      !passData.numeric &&
+      !passData.specialCharacters
+      ) {
+      alert("You need to select one option");
+      generatePassword();
+    } else {
+      makePassWord(); 
+    }
+    console.log(pass);
+    return pass;
   }
-  return pass;
 }
-
 var pass = '';
 
-//Loops through the array and picks out random letters
-function makePassWord() {
-  for (var i = 0; i < passData.length; i++) {
-    pass += passAray[Math.floor(Math.random() * passAray.length)];
-  }
-  return;
-}
-
 function resetPassData() {
-  passAray = [];
+  passArray = [];
   pass = ''
   passData.length = 0;
 }
 
-
-//Asks length of password
-function passLength() {
-  var length = prompt("How long would you like your password to be");
-  if (length < 8 || length > 128) {
-    alert("Your password must be between 8 - 128 characters");
-    generatePassword();
-  } else {
-    passData.length = length;
+//Loops through the array and picks out random letters
+function makePassWord() {
+  for (var i = 0; i < passData.length; i++) {
+    pass += passArray[Math.floor(Math.random() * passArray.length)];
   }
+  return;
 }
 
 //Loops through all character types in object and concats string to array
@@ -81,7 +74,7 @@ function passCharacterTypes() {
   for (var type in characterTypes) {
     if (confirm("Do you want your password to contain " + type + " ?")) {
       passData[type] = true;
-      passAray = passAray.concat(characterTypes[type].split(""))
+      passArray = passArray.concat(characterTypes[type].split(""))
     } else {
       passData[type] = false;
     }
