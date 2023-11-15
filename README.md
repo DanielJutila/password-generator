@@ -2,11 +2,9 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- I like coding JS more since it feels like coding. This was a good practice unit to familiarize myself with JS.
-- Had to make a password generator that could take inputs and spit out a random password.
-- Realized I was DRY coding and my brother in law let me know I could loop through an object.
+- Had to make a password generator that could take inputs and spit out a random based on the inputs.
+- Actually a good way to get random passwords.
+- This project was good practice for beccomming familiar with JS.
 
 ## Table of Contents (Optional)
 
@@ -22,7 +20,7 @@ Press the "Generate Password" button and follow the prompts. The password must b
 
 ## Credits
 
-Brother in law, Called him up because my code looked messy. He said I could clean up a lot of code by looping through the object.
+Brother in law, Called him up because my code looked messy. He said I could clean up a lot of code by looping through the object. Helped me not DRY code
 
 Got me on my way for getting for-loop working with object. 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
