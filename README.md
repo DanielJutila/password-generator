@@ -20,7 +20,7 @@ Press the "Generate Password" button and follow the prompts. The password must b
 
 
 Deployed Application
-  https://danieljutila.github.io/password-generator/
+- https://danieljutila.github.io/password-generator/
 
 ## Credits
 
