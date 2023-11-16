@@ -18,6 +18,10 @@ Press the "Generate Password" button and follow the prompts. The password must b
 
   ![alt text](Images/Capture.PNG)
 
+
+Deployed Application
+  https://danieljutila.github.io/password-generator/
+
 ## Credits
 
 Brother in law, Called him up because my code looked messy. He said I could clean up a lot of code by looping through the object. Helped me not DRY code
